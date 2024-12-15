@@ -33,18 +33,18 @@
         <visual>
             <origin xyz="0.09 0 0.02" rpy="0 0 0"/>
             <geometry>
-                <box size="0.23 0.215 0.040"/>
+                <box size="0.23 0.214 0.040"/>
             </geometry>
             <material name="white"/>
         </visual>                                           
         <collision>
             <origin xyz="0.09 0 0.02" rpy="0 0 0"/>
             <geometry>
-                <box size="0.23 0.215 0.040"/>
+                <box size="0.23 0.214 0.040"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
-            <origin xyz="-0.09 0 0.02" rpy="0 0 0"/>
+        <xacro:inertial_box mass="0.5" x="0.23" y="0.214" z="0.04">
+            <origin xyz="0.09 0 0.02" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
     <!--WHEELS-->
@@ -106,16 +106,24 @@
     <link name="ball">
         <visual>
             <geometry>
-                <sphere radius="0.036"/>
+                <sphere radius="0.034"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>
-                <sphere radius="0.036"/>
+                <sphere radius="0.034"/>
             </geometry>
             <material name="black"/>
         </collision>
+        <xacro:inertial_sphere mass="0.1" radius="0.034">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_sphere>
     </link>
+    <gazebo reference="ball">
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
+    </gazebo>
+
 
 </robot>
